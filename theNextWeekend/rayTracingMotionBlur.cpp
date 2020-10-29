@@ -7,9 +7,9 @@
 #include "material.h"
 #include "random.h"
 #include "time.h"
+#include "moving_sphere.h"
 
 using namespace std;
-
 
 vec3 color(const ray& r, hitable *world, int depth){
 	hit_record rec;
