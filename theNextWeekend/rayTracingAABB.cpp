@@ -74,7 +74,6 @@ hitable *random_scene() {
     return new bvh_node(list, i, 0.0, 1.0);
 }
 
-
 int main(){
 	int nx = 1200;
 	int ny = 800;
