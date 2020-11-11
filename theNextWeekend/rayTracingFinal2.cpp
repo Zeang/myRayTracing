@@ -144,7 +144,7 @@ hitable *cornell_smoke() {
 }
 
 hitable *final() {
-    int nb = 20;
+    int nb = 10;
     hitable **list = new hitable*[30];
     hitable **boxlist = new hitable*[10000];
     hitable **boxlist2 = new hitable*[10000];
@@ -165,8 +165,8 @@ hitable *final() {
     }
     int l = 0;
     list[l++] = new bvh_node(boxlist, b, 0, 1);
-    material *light = new diffuse_light( new constant_texture(vec3(7, 7, 7)) );
-    list[l++] = new xz_rect(123, 423, 147, 412, 554, light);
+    material *light = new diffuse_light( new constant_texture(vec3(15, 15, 15)) );
+    list[l++] = new xz_rect(163, 363, 187, 382, 554, light);
     vec3 center(400, 400, 200);
     list[l++] = new moving_sphere(center, center+vec3(30, 0, 0), 0, 1, 50, new lambertian(new constant_texture(vec3(0.7, 0.3, 0.1))));
     list[l++] = new sphere(vec3(260, 150, 45), 50, new dielectric(1.5));
@@ -250,7 +250,7 @@ hitable *cornell_balls() {
 int main(){
 	int nx = 800;
 	int ny = 800;
-	int ns = 10;
+	int ns = 1000;
 	clock_t start, end;
 	ofstream outfile;
 	outfile.open("pic/rayTracingFinal.ppm");
@@ -280,7 +280,7 @@ int main(){
 			col = vec3(sqrt(col[0]), sqrt(col[1]), sqrt(col[2]));
 			int ir = int(255.99*col[0]);
 			int ig = int(255.99*col[1]);
-			int ib = int(255.99*col[2]);	
+			int ib = int(255.99*col[2]);
 			outfile << ir << " " << ig << " " << ib << "\n";
 		}
 		temp = (ny-j)*100/ny;
